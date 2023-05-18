@@ -1,1 +1,7 @@
 
+### custom parameters #####
+
+INPUT_DIR: '/zp1/data/ShareData/SnakemakeWorkflow/SMK_DataSets/ATACseq/'        ## path to raw data
+WORK_DIR: '/zp1/data/ShareData/SnakemakeWorkflow/ATACseq_testing/'                  ## path to working directory
+
+BOWTIE2INDEX: '/zp1/data/ShareData/SnakemakeWorkflow/SMK_Genomes/Bowtie2Index_premake/GRCm38_NCBI/GRCm38 '  ## path to BOWTIE2 index
