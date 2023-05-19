@@ -1,6 +1,6 @@
 # SMK_ATAC
 
-This workflow performs data process for ATAC-seq
+This workflow performs data process for ATAC-seq from fastq to call peaks by MACS2
 
 
 ## Workflow
