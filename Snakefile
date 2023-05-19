@@ -223,45 +223,7 @@ rule MACS2_callpeak:
     conda:
         'envs/MACS2Callpeaks.yaml'
     shell:
-        "macs2 callpeak -t {input} -n {wildcards.sample} --outdir results/MACS2/{wildcards.sample} -g hs -f BAM --keep-dup auto --bdg "
+        "macs2 callpeak -t {input} -n {wildcards.sample} --outdir results/MACS2/{wildcards.sample} --nomodel --sift -100 --extsize 200 -g mm "
 
 
-rule homer_mergePeaks_ctl:
-    input:
-        # input peak files
-        expand("results/MACS2/{sample}/{sample}_peaks.narrowPeak",sample=config['HOMER_MERGE_CTL'])
-    output:
-        "results/HOMER/merged/merged_peaks_CTL.narrowPeak"
-    params:
-        extra="-d given"  # optional params, see homer manual
-    log:
-        "logs/mergePeaks/merged_peaks.log"
-    wrapper:
-        "v1.25.0/bio/homer/mergePeaks"
 
-
-rule homer_mergePeaks_treatment:
-    input:
-        # input peak files
-        expand("results/MACS2/{sample}/{sample}_peaks.narrowPeak",sample=config['HOMER_MERGE_TREATMENT'])
-    output:
-        "results/HOMER/merged/merged_peaks_TREATMENT.narrowPeak"
-    params:
-        extra="-d given"  # optional params, see homer manual
-    log:
-        "logs/mergePeaks/merged_peaks.log"
-    wrapper:
-        "v1.25.0/bio/homer/mergePeaks"
-
-
-rule r_PeaksToBed:
-    input:
-        peaks_ctl="results/HOMER/merged/merged_peaks_CTL.narrowPeak",
-        peaks_treatment="results/HOMER/merged/merged_peaks_TREATMENT.narrowPeak"
-    output:
-        bed_ctl="results/HOMER/merged/merged_peaks_CTL.bed",
-        bed_treatment="results/HOMER/merged/merged_peaks_TREATMENT.bed"
-    conda:
-        "envs/r_PeaksToBed.yaml"
-    script:
-        "scripts/ConvertPeaks.R"
