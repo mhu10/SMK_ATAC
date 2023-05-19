@@ -219,7 +219,7 @@ rule MACS2_callpeak:
     conda:
         'envs/MACS2Callpeaks.yaml'
     shell:
-        "macs2 callpeak -t {input} -n {wildcards.sample} --outdir results/MACS2/{wildcards.sample} --nomodel --sift -100 --extsize 200 -g mm "
+        "macs2 callpeak -t {input} -n {wildcards.sample} --outdir results/MACS2/{wildcards.sample} --nomodel --shift -100 --extsize 200 -g mm "
 
 
 
