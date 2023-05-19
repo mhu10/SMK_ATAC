@@ -7,6 +7,11 @@ This workflow performs data process for ATAC-seq from fastq to call peaks by MAC
 
 
 
+![dag1](https://github.com/mhu10/SMK_ATAC/assets/38729968/f37c79df-c695-4bdd-8c31-d31765771dbb)
+
+
+
+
 ## Install Snakemake and Git
 
 Please make sure that Snakemake and Git are correctly installed
