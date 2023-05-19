@@ -26,11 +26,7 @@ rule all:
         expand("results/MultiBamSummary/deeptools_readCounts.tab"),
 	    expand("results/MultiBamSummary/deepTools_pcaplot.png"),
 	    expand("results/MultiBamSummary/deeptools_pcaProfile.tab"),
-        expand("results/MultiBamSummary/deepTools_heatmap_spearman.png"),
-        expand("results/HOMER/merged/merged_peaks_CTL.narrowPeak"),
-        expand("results/HOMER/merged/merged_peaks_TREATMENT.narrowPeak"),
-        expand("results/HOMER/merged/merged_peaks_CTL.bed"),
-        expand("results/HOMER/merged/merged_peaks_TREATMENT.bed")
+        expand("results/MultiBamSummary/deepTools_heatmap_spearman.png")
     
 
 rule fastqc:
